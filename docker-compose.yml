@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  flask_app:
+    build:
+      context: .
+      dockerfile: Docker-Blog/Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Volume-Blog:/app
+    environment:
+      - FLASK_ENV=development
+      - SQLALCHEMY_DATABASE_URI=postgresql://postgres:piter@pg:5432/blog  # Connect to the "blog" database
+
+  pg:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: piter
+      POSTGRES_DB: blog
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./Volume-Database:/var/lib/postgresql/data
