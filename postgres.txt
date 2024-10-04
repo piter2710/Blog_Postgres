@@ -1,0 +1,9 @@
+command to open postgres using docker: docker exec -it bigflaskproject-pg-1 psql -U postgres -d blog
+
+bigflaskproject - nazwa projektu -> pg-1 - nazwa containera ktore znajduje sie w tym projekcie. Jest on nasza baza danych. blog -> nazwa naszej bazy danych bez tego odpalil by sie postgres bez bazy danych.
+Komendy postgres:
+\dt - wyswietlnienie wszystkich tabel
+\q - wyjscie z postgresa
+
+Normalnie mozna patrzec na tabele uzywajajc
+SELECT * FROM nazwa_tabeli
